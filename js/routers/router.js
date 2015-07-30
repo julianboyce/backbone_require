@@ -2,23 +2,18 @@
 define([
 	'jquery',
 	'backbone',
-	'collections/todos',
-	'common'
-], function ($, Backbone, Todos, Common) {
+	'collections/projects',
+	'views/project-overview'
+], function ($, Backbone, Projects, ProjectOverview) {
 	'use strict';
 
 	var TodoRouter = Backbone.Router.extend({
 		routes: {
-			'*filter': 'setFilter'
+			'project-overview': 'projectOverview'
 		},
 
-		setFilter: function (param) {
-			// Set the current filter to be used
-			Common.TodoFilter = param || '';
-
-			// Trigger a collection filter event, causing hiding/unhiding
-			// of the Todo view items
-			Todos.trigger('filter');
+		projectOverview: function () {
+			new ProjectOverview();
 		}
 	});
 
