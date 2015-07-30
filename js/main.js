@@ -22,6 +22,9 @@ require.config({
 		},
 		parse: {
 			exports: 'Parse'
+		},
+		bootstrap: {
+			deps: ['jquery']
 		}
 	},
 	paths: {
@@ -30,14 +33,16 @@ require.config({
 		backbone: '../node_modules/backbone/backbone',
 		backboneLocalstorage: '../node_modules/backbone.localstorage/backbone.localStorage',
 		text: '../node_modules/requirejs-text/text',
-		parse: '../parse-1.5.0/parse-1.5.0'
+		parse: '../parse-1.5.0/parse-1.5.0',
+		bootstrap: '../bootstrap-3.3.5-dist/js/bootstrap'
 	}
 });
 
 require([
 	'backbone',
 	'views/app',
-	'routers/router'
+	'routers/router',
+	'bootstrap'
 ], function (Backbone, AppView, Workspace) {
 	/*jshint nonew:false*/
 	// Initialize routing and start Backbone.history()
